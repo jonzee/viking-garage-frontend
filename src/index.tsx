@@ -13,9 +13,6 @@ const { AppContainer } = require('react-hot-loader');
 // Import our App container (which we will create in the next step)
 import App from 'components/App';
 
-// Tell Typescript that there is a global variable called module - see below
-declare var module: { hot: any };
-
 // Get the root element from the HTML
 const rootEl = document.getElementById('app');
 
@@ -26,6 +23,9 @@ render(
   </AppContainer>,
   rootEl
 );
+
+// Tell Typescript that there is a global variable called module - see below
+declare var module: { hot: any };
 
 // Handle hot reloading requests from Webpack
 if (module.hot) {
