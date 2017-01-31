@@ -9,6 +9,7 @@ import {
   FlatButton,
 } from 'material-ui';
 import Cardgrid from 'components/Cardgrid';
+import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Menu from 'components/Menu';
 import Search from 'components/Search';
@@ -51,7 +52,7 @@ export default function App() {
         />
         <Header />
         <Search />
-        <Cardgrid />
+        <Footer />
       </div>
     </MuiThemeProvider>
   );
