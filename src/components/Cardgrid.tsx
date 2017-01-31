@@ -1,88 +1,81 @@
 import React from 'react';
-import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import Subheader from 'material-ui/Subheader';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import {
+  CircularProgress,
+  FontIcon,
+  IconButton,
+} from 'material-ui';
+import {
+  GridList,
+  GridTile
+} from 'material-ui/GridList';
+import { muiThemeable } from 'material-ui/styles';
 
 const styles = {
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
+  image: {
+    width: 'initial',
+    height: 'initial',
+    maxWidth: '100%',
+    maxHeight: '100%',
   },
-  gridList: {
-    width: 500,
-    height: 370,
+  load: {
+    width: '100%',
+    height: 135,
+    paddingTop: 40,
+    boxSizing: 'border-box',
+    backgroundColor: '#606060',
+    textAlign: 'center',
   },
+  loadmore: {
+    color: 'white',
+    fontSize: 30,
+    cursor: 'pointer',
+    textDecoration: 'underline',
+    backgroundColor: 'transparent',
+    border: 'none',
+    outline: 'none',
+  }
 };
 
-const img = 'http://www.pngpix.com/wp-content/uploads/2016/07/PNGPIX-COM-Honda-CRF-450R-Motocross-Bike-PNG-Image.png';
+export default muiThemeable()(Cardgrid);
 
-const tilesData = [
-  {
-    title: 'Breakfast',
-    author: 'jill111',
-    img: img,
-  },
-  {
-    title: 'Tasty burger',
-    author: 'pashminu',
-    img: img,
-  },
-  {
-    title: 'Camera',
-    author: 'Danson67',
-    img: img,
-  },
-  {
-    title: 'Morning',
-    author: 'fancycrave1',
-    img: img,
-  },
-  {
-    title: 'Hats',
-    author: 'Hans',
-    img: img,
-  },
-  {
-    title: 'Honey',
-    author: 'fancycravel',
-    img: img,
-  },
-  {
-    title: 'Vegetables',
-    author: 'jill111',
-    img: img,
-  },
-  {
-    title: 'Water plant',
-    author: 'BkrmadtyaKarki',
-    img: img,
-  },
-];
-
-/**
- * A simple example of a scrollable `GridList` containing a [Subheader](/#/components/subheader).
- */
-const GridListExampleSimple = () => (
-  <div style={styles.root as any}>
-    <GridList
-      cellHeight={180}
-      style={styles.gridList}
-    >
-      {tilesData.map((tile) => (
-        <GridTile
-          key={tile.title}
-          style={{margin: 20}}
-          title={tile.title}
-          subtitle={<span>by <b>{tile.author}</b></span>}
-          actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
-        >
-          <img src={tile.img} />
-        </GridTile>
-      ))}
-    </GridList>
-  </div>
-);
-
-export default GridListExampleSimple;
+function Cardgrid({
+  data,
+  loadMore,
+  loading,
+  muiTheme,
+}) {
+  return (
+    <div style={{fontFamily: muiTheme.fontFamily}}>
+      <div style={muiTheme.container}>
+        <GridList cellHeight={300}>
+          {data.map(item => (
+            <GridTile
+              key={item.key}
+              title={item.title}
+              subtitle={<span><b>{item.price} - {item.approx}</b></span>}
+              actionIcon={(
+                <IconButton>
+                  <FontIcon
+                    color="white"
+                    hoverColor="#AD000D"
+                    className='fa fa-fire'/>
+                </IconButton>)}
+            >
+              <img style={styles.image} src={item.img} alt={item.title} />
+            </GridTile>
+          ))}
+        </GridList>
+      </div>
+      <div style={styles.load}>
+        {loading
+          ? (<CircularProgress size={60} thickness={7} color="white" />)
+          : (
+            <button style={styles.loadmore} onClick={loadMore}>
+              Load more results
+            </button>
+          )
+        }
+      </div>
+    </div>
+  );
+}

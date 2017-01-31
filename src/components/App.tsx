@@ -8,7 +8,7 @@ import {
   AppBar,
   FlatButton,
 } from 'material-ui';
-import Cardgrid from 'components/Cardgrid';
+import CardContainer from 'containers/CardContainer';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
 import Menu from 'components/Menu';
@@ -52,6 +52,7 @@ export default function App() {
         />
         <Header />
         <Search />
+        <CardContainer />
         <Footer />
       </div>
     </MuiThemeProvider>
