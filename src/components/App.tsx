@@ -48,7 +48,7 @@ export default function App() {
           title="&#5809;"
           titleStyle={muiTheme.raido}
           showMenuIconButton={false}
-          iconElementRight={(<Menu />)}
+          iconElementRight={<Menu />}
         />
         <Header />
         <Search />
