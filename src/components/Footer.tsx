@@ -38,29 +38,29 @@ function Footer (props) {
       <div style={styles.connect}>
         Connect with us:
         <div style={{whiteSpace: 'nowrap'}}>
-          <a href='https://vikinggarage.slack.com' target='_blank'>
-            <FontIcon style={styles.icon} color={'white'} hoverColor={'#AD000D'} className='fa fa-slack'/>
+          <a href="https://vikinggarage.slack.com" target="_blank">
+            <FontIcon style={styles.icon} color="white" hoverColor="#AD000D" className="fa fa-slack" />
           </a>
-          <a href='http://stackoverflow.com/users/2445063/wiherek' target='_blank'>
-            <FontIcon style={styles.icon} color={'white'} hoverColor={'#AD000D'} className='fa fa-stack-overflow'/>
+          <a href="http://stackoverflow.com/users/2445063/wiherek" target="_blank">
+            <FontIcon style={styles.icon} color="white" hoverColor="#AD000D" className="fa fa-stack-overflow" />
           </a>
-          <a href='https://www.facebook.com/michal.mikolajczyk' target='_blank'>
-            <FontIcon style={styles.icon} color={'white'} hoverColor={'#AD000D'} className='fa fa-facebook-square'/>
+          <a href="https://www.facebook.com/michal.mikolajczyk" target="_blank">
+            <FontIcon style={styles.icon} color="white" hoverColor="#AD000D" className="fa fa-facebook-square" />
           </a>
-          <a href='https://www.instagram.com/wiherek89/' target='_blank'>
-            <FontIcon style={styles.icon} color={'white'} hoverColor={'#AD000D'} className='fa fa-instagram'/>
+          <a href="https://www.instagram.com/wiherek89/" target="_blank">
+            <FontIcon style={styles.icon} color="white" hoverColor="#AD000D" className="fa fa-instagram" />
           </a>
-          <a href='https://github.com/michalmikolajczyk/' target='_blank'>
-            <FontIcon style={styles.icon} color={'white'} hoverColor={'#AD000D'} className='fa fa-github'/>
+          <a href="https://github.com/michalmikolajczyk/" target="_blank">
+            <FontIcon style={styles.icon} color="white" hoverColor="#AD000D" className="fa fa-github" />
           </a>
        </div>
       </div>
       <div style={styles.madeby}>
         Made with&#160;&#160;
-        <FontIcon style={{...styles.icon, fontSize: 18, paddingRight: 0}} color={'white'} hoverColor={'#AD000D'} className='fa fa-fire'/>
+        <FontIcon style={{...styles.icon, fontSize: 18, paddingRight: 0}} color="white" hoverColor="#AD000D" className="fa fa-fire" />
         <div style={{whiteSpace: 'nowrap'}}>
-          <FontIcon style={{...styles.icon, fontSize: 18, paddingRight: 10}} color={'white'} className='fa fa-copyright'/>
-          2016 Michal Mikolajczyk
+          <FontIcon style={{...styles.icon, fontSize: 18, paddingRight: 10}} color="white" className="fa fa-copyright" />
+          2016 <span style={{textDecoration: 'underline'}}>Michal Mikolajczyk</span>
         </div>
       </div>
     </div>
