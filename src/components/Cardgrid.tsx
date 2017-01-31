@@ -38,38 +38,45 @@ const styles = {
 
 export default muiThemeable()(Cardgrid);
 
-function Cardgrid({
-  data,
-  loadMore,
-  loading,
-  muiTheme,
-}) {
+function Cardgrid(props) {
+
+  const {
+    data,
+    loadMore,
+    loading,
+    muiTheme,
+  } = props;
+
+  const actionIconButton = item => (
+    <IconButton>
+      <FontIcon
+        color="white"
+        hoverColor="#AD000D"
+        className='fa fa-fire'/>
+    </IconButton>);
+
+  const mappedItems = data.map(item => (
+    <GridTile
+      key={item.key}
+      title={item.title}
+      subtitle={<span><b>{item.price} - {item.approx}</b></span>}
+      actionIcon={actionIconButton(item)}
+    >
+      <img style={styles.image} src={item.img} alt={item.title} />
+    </GridTile>));
+
   return (
     <div style={{fontFamily: muiTheme.fontFamily}}>
       <div style={muiTheme.container}>
         <GridList cellHeight={300}>
-          {data.map(item => (
-            <GridTile
-              key={item.key}
-              title={item.title}
-              subtitle={<span><b>{item.price} - {item.approx}</b></span>}
-              actionIcon={(
-                <IconButton>
-                  <FontIcon
-                    color="white"
-                    hoverColor="#AD000D"
-                    className='fa fa-fire'/>
-                </IconButton>)}
-            >
-              <img style={styles.image} src={item.img} alt={item.title} />
-            </GridTile>
-          ))}
+          {mappedItems}
         </GridList>
       </div>
       <div style={styles.load}>
-        {loading
-          ? (<CircularProgress size={60} thickness={7} color="white" />)
-          : (
+        {
+          loading ? (
+            <CircularProgress size={60} thickness={7} color="white" />
+          ) : (
             <button style={styles.loadmore} onClick={loadMore}>
               Load more results
             </button>
