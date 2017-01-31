@@ -19,12 +19,23 @@ const muiTheme = getMuiTheme({
     textColor: 'black',
     color: 'white',
   },
+  textField: {
+    focusColor: '#AD000D',
+  },
   // custom styles
-  container: 900,
   raido: {
     color: '#AD000D',
     fontFamily: 'Junicode'
-  }
+  },
+  container: {
+    maxWidth: 900,
+    margin: 'auto',
+    width: '100%',
+    padding: 30,
+    boxSizing: 'border-box',
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
 });
 
 export default function App() {

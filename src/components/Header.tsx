@@ -2,14 +2,6 @@ import React from 'react';
 import { muiThemeable } from 'material-ui/styles';
 
 const styles = {
-  container: {
-    margin: 'auto',
-    display: 'flex',
-    flexWrap: 'wrap',
-    width: '100%',
-    padding: 30,
-    boxSizing: 'border-box',
-  },
   title: {
     flexGrow: 4,
     fontSize: 50,
@@ -37,9 +29,8 @@ export default muiThemeable()(Header);
 function Header (props) {
   return (
     <div style={{
-      maxWidth: props.muiTheme.container,
+      ...props.muiTheme.container,
       fontFamily: props.muiTheme.fontFamily,
-      ...styles.container,
     }}>
       <h1 style={styles.title}>
         VIKING

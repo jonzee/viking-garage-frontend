@@ -1,40 +1,63 @@
 import React, { Component } from 'react';
-import AutoComplete from 'material-ui/AutoComplete';
+import { muiThemeable } from 'material-ui/styles';
+import {
+  FontIcon,
+  TextField,
+} from 'material-ui';
 
-/**
- * The input is used to create the `dataSource`, so the input always matches three entries.
- */
+const styles = {
+  textField: {
+    width: 'initial',
+    flex: 1,
+  },
+  inputStyle: {
+    paddingLeft: 24,
+  },
+  icon: {
+    width: 24,
+    fontSize: 18,
+    marginTop: 14,
+    marginRight: -24,
+  },
+}
 
-interface Props {}
+export default muiThemeable()(Search);
 
-interface State {}
-
-export default class AutoCompleteExampleSimple extends Component<Props, State> {
-	state = {
-		dataSource: [],
-	};
-
-	handleUpdateInput = (value) => {
-		this.setState({
-			dataSource: [
-				'motocross1',
-				'motocross2',
-				'motocross3',
-				'motocross4',
-				value,
-			],
-		});
-	};
-
-	public render() {
-		return (
-				<AutoComplete
-					hintText="Type motocross"
-					dataSource={this.state.dataSource}
-					onUpdateInput={this.handleUpdateInput}
-					floatingLabelText="Full width"
-					fullWidth={true}
-				/>
-		);
-	}
+function Search(props) {
+  return (
+    <div style={props.muiTheme.container} className='search-input'>
+      <FontIcon
+        style={styles.icon}
+        className='fa fa-map-marker' />
+      <TextField
+        style={styles.textField}
+        inputStyle={styles.inputStyle}
+        hintStyle={styles.inputStyle}
+        hintText="Gran Canaria"/>
+      <FontIcon
+        style={styles.icon}
+        className='fa fa-angle-down' />
+      <TextField
+        style={styles.textField}
+        inputStyle={styles.inputStyle}
+        hintStyle={styles.inputStyle}
+        hintText="Dirtbike"/>
+      <FontIcon
+        style={styles.icon}
+        className='fa fa-calendar' />
+      <TextField
+        style={styles.textField}
+        inputStyle={styles.inputStyle}
+        hintStyle={styles.inputStyle}
+        hintText="Today"/>
+      <FontIcon
+        style={styles.icon}
+        className='fa fa-calendar' />
+      <TextField
+        style={styles.textField}
+        inputStyle={styles.inputStyle}
+        hintStyle={styles.inputStyle}
+        hintText="19/01/2017"/>
+    </div>
+  );
 }
