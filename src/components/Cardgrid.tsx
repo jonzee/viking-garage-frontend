@@ -47,6 +47,14 @@ function Cardgrid(props) {
     muiTheme,
   } = props;
 
+  const loader = loading ? (
+      <CircularProgress size={60} thickness={7} color="white" />
+    ) : (
+      <button style={styles.loadmore} onClick={loadMore}>
+        Load more results
+      </button>
+    );
+
   const actionIconButton = item => (
     <IconButton>
       <FontIcon
@@ -73,15 +81,7 @@ function Cardgrid(props) {
         </GridList>
       </div>
       <div style={styles.load}>
-        {
-          loading ? (
-            <CircularProgress size={60} thickness={7} color="white" />
-          ) : (
-            <button style={styles.loadmore} onClick={loadMore}>
-              Load more results
-            </button>
-          )
-        }
+        {loader}
       </div>
     </div>
   );
