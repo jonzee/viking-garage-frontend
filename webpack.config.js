@@ -3,7 +3,7 @@ var path = require('path');
 var WebpackNotifierPlugin = require('webpack-notifier');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: [
     // Add the react hot loader entry point - in reality, you only want this in your dev Webpack config
     'react-hot-loader/patch',
