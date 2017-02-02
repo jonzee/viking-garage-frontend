@@ -7,12 +7,12 @@ import Router from 'router';
 
 const muiTheme = getMuiTheme({
   fontFamily: '"Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif',
+  palette: {
+    primary1Color: '#AD000D',
+  },
   appBar: {
     textColor: 'black',
     color: 'white',
-  },
-  textField: {
-    focusColor: '#AD000D',
   },
 });
 
